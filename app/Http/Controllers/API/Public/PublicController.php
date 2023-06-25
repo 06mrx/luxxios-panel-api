@@ -130,7 +130,7 @@ class PublicController extends Controller
                     'data' => $returned,
 					'startPubgm' => '',
 					'client' => $request->get('client'),
-                    'days' => $days + 1,
+                    'days' => "$days + 1",
                     
                 ]);
             } else {
