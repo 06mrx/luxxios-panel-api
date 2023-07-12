@@ -21,7 +21,7 @@ class PublicController extends Controller
             $models = $models->where('key', 'ilike', '%'.$search.'%');
                 
         }
-        $models = $models->orderBy('created_at', 'desc')->paginate(10);
+        $models = $models->where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(10);
         return $this->sendResponse($models, 'Success');
     }
 
