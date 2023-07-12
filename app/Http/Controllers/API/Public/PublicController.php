@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class PublicController extends Controller
 {
     function dashboard() {
-        return $this->sendResponse(Model::count(), 'Success');
+        return $this->sendResponse(Model::where('user_id', Auth::user()->id)->count(), 'Success');
     }
     function Index(Request $request) {
         $models = Model::query();
