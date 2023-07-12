@@ -150,4 +150,19 @@ class PublicController extends Controller
             ]);
         }
     }
+
+    function uploadSock(Request $request) {
+        if($request->file) {
+            $storePath = "public/sock/";
+            $path = "storage/sock";
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+        }
+
+        if($request->file) {
+            $file->storeAs($storePath, $filename);
+        }
+
+        return $this->sendResponse(true, 'Berhasil mengupload file');
+    }
 }

@@ -11,4 +11,5 @@ Route::group(['namespace' => 'public', 'prefix' => 'public', 'as' => 'public.'],
     Route::post('/check', [PublicController::class, 'isExpire']);
     Route::middleware('auth:sanctum')->get('/reset/{id}', [PublicController::class, 'reset']);
     Route::middleware('auth:sanctum')->get('/reset-all', [PublicController::class, 'resetAllDevice']);
+    Route::middleware('auth:sanctum')->post('/upload-sock', [PublicController::class, 'uploadSock']);
 });
